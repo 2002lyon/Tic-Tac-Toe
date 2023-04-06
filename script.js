@@ -7,6 +7,7 @@ const boardData = [
 ];
 
 let player = 1;
+let gameOver = false;
 
 box.forEach((box, index) => {
     box.addEventListener('click', () => {
@@ -20,7 +21,7 @@ function setSymbols (index){
     let col = index % 3;
     let row = (index - col) / 3;
     
-    if (boardData[row][col] === 0){
+    if (boardData[row][col] === 0 && gameOver == false){
 
         boardData[row][col] = player; 
         // switching player 
@@ -65,12 +66,16 @@ function check() {
 
         if ( rowSum === 3 || colSum === 3){
             // PLayer 1 wins
-            console.log("player 1 wins")
+            // console.log("player 1 wins");
+            gameComplete(1);
+            return
         }
 
         else if (rowSum === -3 || colSum === -3){
              // PLayer 2 wins
-             console.log("player 2 wins")
+            //  console.log("player 2 wins");
+             gameComplete(2);
+             return
         }
     }
 
@@ -79,12 +84,16 @@ function check() {
 
     if ( diagonalSum1 === 3 || diagonalSum2 === 3){
         // PLayer 1 wins
-        console.log("player 1 wins")
+        // console.log("player 1 wins");
+        gameComplete(1);
+        return
     }
 
     else if (diagonalSum1 === -3 || diagonalSum2 === -3){
          // PLayer 2 wins
-         console.log("player 2 wins")
+        //  console.log("player 2 wins")
+         gameComplete(2);
+         return
     }
 
 
@@ -92,5 +101,23 @@ function check() {
 
     if( boardData[0].indexOf(0) == -1 && boardData[1].indexOf(0) == -1 && boardData[2].indexOf(0) == -1) {
         console.log("tie");
+        gameComplete(0);
+        return
+    }
+}
+
+
+// function to end game and display results
+function gameComplete(winner) {
+
+    // trigerring game over
+    gameOver = true;
+    outcome = document.querySelector('#outcome')
+    // check if game is a tie
+    if( winner === 0) {
+        outcome.innerText = " It's a tie";
+    }
+    else {
+        outcome.innerText = `Player ${winner} wins !!!`;
     }
 }
