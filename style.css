@@ -5,7 +5,7 @@
 }
 
 :root{
-    --cell-layout: 6.25rem;
+    --cell-layout: 100px;
     --line: 10px;
     --color: #000;
 }
@@ -21,12 +21,14 @@ body{
 #board{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     align-items: center;
     justify-items: center;
     justify-content: center;
     align-content: center;
-    /* width: auto; */
-    /* height: 100vh; */
+    width: 320px;
+    height: 320px;
+    /* aspect-ratio: 1/1; */
     /* border: 1px solid red; */
     margin-bottom: 4rem;
     background: url('./grid.png');
@@ -46,7 +48,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    /* border: 1px solid black; */
+    flex-wrap: wrap;
     position: relative;
     
 }
@@ -61,18 +63,19 @@ button {
 
 .circle{
     background-image: url('./circle.png');
-    width: 40px;
+    width: 30px;
     height: auto;
     aspect-ratio: 1/1;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    /* border: 1px solid red; */
     /* position: absolute; */
     /* border: none; */
 }
 .cross{
     background-image: url('./cross.svg');
-    width: 40px;
+    width: 30px;
     height: auto;
     aspect-ratio: 1/1;
     background-repeat: no-repeat;
