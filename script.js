@@ -1,6 +1,10 @@
 const board = document.querySelector('#board');
 const box = document.querySelectorAll('.box');
-const boardData = [
+let outcome = document.querySelector('#outcome');
+const continueBtn = document.querySelector('.continue');
+const modalBox = document.querySelector('.modal__box');
+const body = document.getElementsByTagName('body');
+let boardData = [
     [0, 0, 0],
     [0, 0, 0],
     [0, 0, 0]
@@ -112,7 +116,7 @@ function gameComplete(winner) {
 
     // trigerring game over
     gameOver = true;
-    outcome = document.querySelector('#outcome')
+    
     // check if game is a tie
     if( winner === 0) {
         outcome.innerText = " It's a tie";
@@ -121,3 +125,42 @@ function gameComplete(winner) {
         outcome.innerText = `Player ${winner} wins !!!`;
     }
 }
+
+// reset the game 
+const resetBtn = document.querySelector('.reset');
+
+resetBtn.addEventListener('click', () => {
+    gameOver = false;
+    player = 1;
+    boardData = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+    ];
+
+    // reset game Board
+    box.forEach(box => {
+        box.classList.remove("cross", "circle");
+    })
+
+    outcome.innerText = "";
+})
+
+
+continueBtn.addEventListener('click', () => {
+    modalBox.classList.add('close');
+    modalBox.classList.remove('start');
+
+});
+
+// if(modalBox.classList.contains('start')){
+//     document.getElementsByTagName("body").style.background-color = "red";
+// };
+
+// window.addEventListener('keypress', (e) => {
+//     if (e.key === "Escape") {
+//         modalBox.classList.add('close');
+//         console.log('escape')
+//     }
+//     console.log(e);
+// })

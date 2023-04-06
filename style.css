@@ -19,8 +19,15 @@ body{
     align-items: center;
     justify-content: center;
     height: 100vh;
+    position: relative;
     /* background-color: red; */
 }
+
+/* .start{
+    filter: blur(3px);
+    z-index: -10;
+} */
+
 #board{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -53,7 +60,6 @@ body{
     justify-content: center;
     flex-wrap: wrap;
     position: relative;
-    
 }
 
 button {
@@ -116,4 +122,70 @@ button:hover{
     background-color: #000;
     left: 0;
     top: 100%;
+}
+
+.modal__box{
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* margin: auto; */
+    transform: translate(-50%, -50%);
+    width: auto;
+    min-height: 30rem;
+    padding: 5rem;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+    z-index: 100;
+}
+
+.modal__box h1{
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.modal__box h1::after{
+    content: "";
+    width: 100%;
+    height: 2px ;
+    position: absolute;
+    background-color: #fff;
+    left: 0;
+    top: 100%;
+    
+}
+
+.modal__box ul {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    margin-bottom: 2rem;
+}
+
+.modal__box ul li{
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.modal__box p {
+    font-family: 'Poppins', sans-serif;
+    font-size: .8rem;
+    transition: 0.4s ease;
+}
+
+
+.modal__box p:hover{
+    transform: translateX(5px);
+    cursor: pointer;
+}
+
+.modal__box.close{
+    opacity: 0;
+    display: none;
 }
