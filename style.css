@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --cell-layout: 6.25rem;
+    --line: 10px;
+    --color: #000;
+}
+
+body{
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+#board{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    /* width: auto; */
+    /* height: 100vh; */
+    /* border: 1px solid red; */
+    margin-bottom: 4rem;
+    background: url('./grid.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#board:hover{
+    cursor: pointer;
+}
+
+.box{
+    width: var(--cell-layout);
+    height: var(--cell-layout);
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid black; */
+    position: relative;
+    
+}
+
+button {
+    padding: 1rem 3rem;
+    border: none;
+    color: white;
+    background-color: rgb(25, 24, 24);
+    border-radius: 5px;
+}
+
+.circle{
+    background-image: url('./circle.png');
+    width: 40px;
+    height: auto;
+    aspect-ratio: 1/1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* position: absolute; */
+    /* border: none; */
+}
+.cross{
+    background-image: url('./cross.svg');
+    width: 40px;
+    height: auto;
+    aspect-ratio: 1/1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* position: absolute; */
+}
